@@ -1,1 +1,9 @@
-
+<!doctype html><html lang="fa" dir="rtl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ title }}</title><link rel="stylesheet" href="/static/style.css">
+</head><body>
+<div class="noise"></div><nav><div class="logo">AZBER<span>SHOP</span></div><a href="#products">محصولات</a><a href="#about">درباره</a><a class="btn" href="https://t.me/AzberSMP_BOT">ورود به ربات ↗</a></nav>
+<header><div class="orb"></div><p class="eyebrow">NEXT GENERATION CONFIG STORE</p><h1>خرید کانفیگ،<br><span>با یک کلیک.</span></h1><p class="lead">فروشگاهی سریع و مدرن برای کانفیگ‌های AZBER؛ مدیریت، شارژ و خرید در یک تجربه ساده.</p><div class="actions"><a class="primary" href="#products">مشاهده محصولات</a><a class="ghost" href="https://t.me/AzberSMP_BOT">ربات فروش</a></div><div class="stats"><div><b>24/7</b><small>دسترسی</small></div><div><b>FAST</b><small>تحویل</small></div><div><b>SECURE</b><small>پرداخت</small></div></div></header>
+<section id="products"><div class="section-head"><p>STORE</p><h2>محصولات منتخب</h2></div><div class="grid">
+{% for p in products %}<article class="card {% if p.featured %}featured{% endif %}"><div class="tag">{% if p.featured %}★ ویژه{% else %}AZBER{% endif %}</div><h3>{{p.name}}</h3><p>{{p.description}}</p><div class="price">{{"{:,}".format(p.price)}} <small>تومان</small></div><a href="https://t.me/AzberSMP_BOT" class="buy">خرید از ربات <span>←</span></a></article>{% endfor %}
+</div></section><section id="about" class="about"><p>BUILT FOR AZBER</p><h2>تمیز، سریع، حرفه‌ای.</h2><p>تمام مدیریت فروشگاه از ربات ادمین انجام می‌شود؛ بدون نیاز به دستکاری کد برای تنظیمات روزمره.</p></section><footer>AZBER SHOP © 2026</footer><script src="/static/app.js"></script></body></html>
