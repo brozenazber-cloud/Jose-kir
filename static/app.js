@@ -1,2 +1,25 @@
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.style.opacity=1}),{threshold:.08});
-document.querySelectorAll('.card,.about').forEach(x=>{x.style.opacity=0;x.style.transition='opacity .8s ease,transform .35s ease';io.observe(x)});
+document.addEventListener("DOMContentLoaded", () => {
+
+    const cards = document.querySelectorAll(
+        ".product-card"
+    );
+
+    cards.forEach((card, index) => {
+
+        card.style.opacity = "0";
+        card.style.transform = "translateY(25px)";
+
+        setTimeout(() => {
+
+            card.style.transition =
+                "all .6s ease";
+
+            card.style.opacity = "1";
+            card.style.transform =
+                "translateY(0)";
+
+        }, index * 120);
+
+    });
+
+});
