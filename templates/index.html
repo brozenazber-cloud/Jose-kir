@@ -1,9 +1,158 @@
-<!doctype html><html lang="fa" dir="rtl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{{ title }}</title><link rel="stylesheet" href="/static/style.css">
-</head><body>
-<div class="noise"></div><nav><div class="logo">AZBER<span>SHOP</span></div><a href="#products">محصولات</a><a href="#about">درباره</a><a class="btn" href="https://t.me/AzberSMP_BOT">ورود به ربات ↗</a></nav>
-<header><div class="orb"></div><p class="eyebrow">NEXT GENERATION CONFIG STORE</p><h1>خرید کانفیگ،<br><span>با یک کلیک.</span></h1><p class="lead">فروشگاهی سریع و مدرن برای کانفیگ‌های AZBER؛ مدیریت، شارژ و خرید در یک تجربه ساده.</p><div class="actions"><a class="primary" href="#products">مشاهده محصولات</a><a class="ghost" href="https://t.me/AzberSMP_BOT">ربات فروش</a></div><div class="stats"><div><b>24/7</b><small>دسترسی</small></div><div><b>FAST</b><small>تحویل</small></div><div><b>SECURE</b><small>پرداخت</small></div></div></header>
-<section id="products"><div class="section-head"><p>STORE</p><h2>محصولات منتخب</h2></div><div class="grid">
-{% for p in products %}<article class="card {% if p.featured %}featured{% endif %}"><div class="tag">{% if p.featured %}★ ویژه{% else %}AZBER{% endif %}</div><h3>{{p.name}}</h3><p>{{p.description}}</p><div class="price">{{"{:,}".format(p.price)}} <small>تومان</small></div><a href="https://t.me/AzberSMP_BOT" class="buy">خرید از ربات <span>←</span></a></article>{% endfor %}
-</div></section><section id="about" class="about"><p>BUILT FOR AZBER</p><h2>تمیز، سریع، حرفه‌ای.</h2><p>تمام مدیریت فروشگاه از ربات ادمین انجام می‌شود؛ بدون نیاز به دستکاری کد برای تنظیمات روزمره.</p></section><footer>AZBER SHOP © 2026</footer><script src="/static/app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ title }}</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">
+        AZBER<span>SHOP</span>
+    </div>
+
+    <a
+        href="https://t.me/AzberSMP_BOT"
+        target="_blank"
+        class="telegram"
+    >
+        🤖 ربات فروش
+    </a>
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ⚡ AZBER SHOP
+        </div>
+
+        <h1>
+            فروشگاه رسمی
+            <span>AZBER</span>
+        </h1>
+
+        <p>
+            خرید سریع محصولات و خدمات سرور
+            با سیستم پرداخت و تحویل آنلاین.
+        </p>
+
+        <a
+            href="https://t.me/AzberSMP_BOT"
+            target="_blank"
+            class="main-button"
+        >
+            ورود به فروشگاه 🚀
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="products">
+
+    <div class="section-title">
+        <span>SHOP</span>
+        <h2>محصولات فروشگاه</h2>
+    </div>
+
+    <div class="product-grid">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            {% if product[5] %}
+            <div class="featured">
+                ⭐ ویژه
+            </div>
+            {% endif %}
+
+            <h3>
+                {{ product[1] }}
+            </h3>
+
+            <p>
+                {{ product[2] }}
+            </p>
+
+            <div class="price">
+                {{ "{:,}".format(product[3]) }}
+                <small>تومان</small>
+            </div>
+
+            <div class="stock">
+                📦 {{ product[4] }}
+            </div>
+
+            <a
+                href="https://t.me/AzberSMP_BOT"
+                target="_blank"
+                class="buy-button"
+            >
+                خرید محصول
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<section class="about">
+
+    <div class="about-box">
+
+        <span>WHY AZBER?</span>
+
+        <h2>
+            سریع، ساده و حرفه‌ای
+        </h2>
+
+        <p>
+            تمام سفارش‌ها از طریق ربات فروش AZBER
+            مدیریت می‌شوند و وضعیت حساب شما
+            در لحظه قابل مشاهده است.
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div>
+        © AZBER SHOP
+    </div>
+
+    <a
+        href="https://t.me/AzberSMP_BOT"
+        target="_blank"
+    >
+        @AzberSMP_BOT
+    </a>
+
+</footer>
+
+
+<script
+    src="{{ url_for('static', filename='app.js') }}"
+></script>
+
+</body>
+</html>
